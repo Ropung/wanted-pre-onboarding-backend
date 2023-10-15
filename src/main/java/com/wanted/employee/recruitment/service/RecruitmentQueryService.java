@@ -44,6 +44,29 @@ public class RecruitmentQueryService implements RecruitmentQueryUsecase{
     }
 
     @Override
+    public RecruitmentFindAllResDto findAllBySearchString(String search) {
+
+        List<Recruitment> recruitmentList = recruitmentReposiotry.findAllBySearch(search);
+
+        List<RecruitmentFindListByOneResDto> recruitmentDtoList = recruitmentList.stream()
+                .map((e)-> RecruitmentFindListByOneResDto.builder()
+                        .id(e.getId())
+                        .companyName(e.getCompanyName())
+                        .country(e.getCountry())
+                        .region(e.getRegion())
+                        .position(e.getPosition())
+                        .compensation(e.getCompensation())
+                        .technology(e.getTechnology())
+                        .build())
+                .collect(Collectors.toList());
+
+        return RecruitmentFindAllResDto.builder()
+                .RecruitmentList(recruitmentDtoList)
+                .build();
+    }
+
+
+    @Override
     public RecruitmentFindDetailIdResDto findById(Long recruitmentId) {
 
         Recruitment recruitment = recruitmentReposiotry.findById(recruitmentId)
@@ -66,4 +89,10 @@ public class RecruitmentQueryService implements RecruitmentQueryUsecase{
                 .updatedAt(recruitment.getUpdatedAt())
                 .build();
     }
+
+
+
+
+
+
 }

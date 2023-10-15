@@ -41,6 +41,7 @@ public record RecruitmentQueryDto() {
     @Builder
     public record RecruitmentFindAllResDto(
             List<RecruitmentFindListByOneResDto> RecruitmentList
-    ){
-    }
+    ){}
+
+
 }
