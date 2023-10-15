@@ -23,6 +23,7 @@ public class SecurityConfig {
 	public static final String[] GET_PUBLIC =
 			new String[] {
 					"/*",
+					"/*/**"
 			};
 
 	public static final String[] POST_PUBLIC =
