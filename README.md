@@ -1,1 +1,3 @@
-# wanted-pre-onboarding-backend
+
+### 프로젝트 기간
+2023.10.15 ~ 10.16
